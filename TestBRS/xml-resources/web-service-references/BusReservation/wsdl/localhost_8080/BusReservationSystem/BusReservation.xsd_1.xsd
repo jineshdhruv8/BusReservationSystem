@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://BusReservationSystem/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://BusReservationSystem/">
+
+<xs:element name="InsertReserveInfo" type="tns:InsertReserveInfo"/>
+
+<xs:element name="InsertReserveInfoResponse" type="tns:InsertReserveInfoResponse"/>
+
+<xs:element name="getBusInfo" type="tns:getBusInfo"/>
+
+<xs:element name="getBusInfoResponse" type="tns:getBusInfoResponse"/>
+
+<xs:element name="getRouteInfo" type="tns:getRouteInfo"/>
+
+<xs:element name="getRouteInfoResponse" type="tns:getRouteInfoResponse"/>
+
+<xs:complexType name="getRouteInfo">
+<xs:sequence>
+<xs:element name="origin" type="xs:string" minOccurs="0"/>
+<xs:element name="destination" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRouteInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:routeInfo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="routeInfo">
+<xs:sequence>
+<xs:element name="destination" type="xs:string" minOccurs="0"/>
+<xs:element name="origin" type="xs:string" minOccurs="0"/>
+<xs:element name="routeID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBusInfo">
+<xs:sequence>
+<xs:element name="routeid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBusInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:busInfo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="busInfo">
+<xs:sequence>
+<xs:element name="ac" type="xs:boolean"/>
+<xs:element name="arrivalTime" type="xs:string" minOccurs="0"/>
+<xs:element name="availableSeat" type="xs:int"/>
+<xs:element name="busID" type="xs:int"/>
+<xs:element name="departureTime" type="xs:string" minOccurs="0"/>
+<xs:element name="errorMsg" type="xs:string" minOccurs="0"/>
+<xs:element name="fare" type="xs:int"/>
+<xs:element name="routeID" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertReserveInfo">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="phone" type="xs:int"/>
+<xs:element name="qty" type="xs:int"/>
+<xs:element name="busid" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertReserveInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reserveInfo" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reserveInfo">
+<xs:sequence>
+<xs:element name="busID" type="xs:int"/>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="errorMsg" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="passengerId" type="xs:int"/>
+<xs:element name="seat" type="xs:int"/>
+<xs:element name="time" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
